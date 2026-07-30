@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive EMS hardware procurement process map with owner, risk, and handoff visibility." />
+  <title>EMS Hardware Procurement Process</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#processMap">Skip to process map</a>
+
+  <main class="app" aria-labelledby="pageTitle">
+    <header class="header">
+      <section class="hero" aria-label="Process overview">
+        <p class="eyebrow">Interactive workflow brief</p>
+        <h1 id="pageTitle">EMS Hardware Procurement Process</h1>
+        <p class="subtitle">
+          A governed workflow from booked order through BOM validation, quote approval,
+          PR/PO execution, inbound receipt, installation pickup, and internal closure.
+        </p>
+        <div class="badges" aria-label="Application highlights">
+          <span class="badge">Click any task</span>
+          <span class="badge">Decision gates highlighted</span>
+          <span class="badge">Owner and risk visibility</span>
+          <span class="badge">Repository-ready package</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-labelledby="controlsTitle">
+        <h2 id="controlsTitle">Process controls</h2>
+        <div class="control-row" role="group" aria-label="Map views">
+          <button id="btnAll" class="active" type="button" aria-pressed="true">Show all</button>
+          <button id="btnCritical" type="button" aria-pressed="false">Critical path</button>
+          <button id="btnDecisions" type="button" aria-pressed="false">Decision gates</button>
+        </div>
+        <label class="field-label" for="ownerFilter">Filter by owner</label>
+        <select id="ownerFilter">
+          <option value="all">All owners</option>
+        </select>
+        <div class="legend" aria-label="Risk legend">
+          <span><i class="dot low-dot"></i>Low risk</span>
+          <span><i class="dot medium-dot"></i>Medium risk</span>
+          <span><i class="dot high-dot"></i>High risk</span>
+          <span><i class="dot decision-dot"></i>Decision gate</span>
+        </div>
+      </section>
+    </header>
+
+    <section class="main-layout">
+      <section class="map-card" aria-labelledby="mapTitle">
+        <div class="map-card-header">
+          <div>
+            <h2 id="mapTitle">Process map</h2>
+            <p>Use mouse or keyboard focus to inspect tasks. Click to lock details.</p>
+          </div>
+          <button id="btnReset" type="button" class="secondary-button">Reset selection</button>
+        </div>
+        <div class="canvas" id="processMap">
+          <svg viewBox="-285 0 1330 805" preserveAspectRatio="xMidYMid meet" role="img" aria-label="EMS hardware procurement interactive process map">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"></path>
+              </marker>
+            </defs>
+            <g id="edges"></g>
+            <g id="nodes"></g>
+          </svg>
+        </div>
+      </section>
+
+      <aside class="side-panel" id="detailPanel" aria-live="polite"></aside>
+    </section>
+
+    <footer class="footer">
+      Built from the EMS hardware procurement sketch and process brief. Keep owner accountability explicit at every handoff.
+    </footer>
+  </main>
+
+  <div class="tooltip" id="tooltip" role="tooltip"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
